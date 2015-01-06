@@ -9,7 +9,7 @@ describe Madison::Map do
 
   describe "#states" do
     it "returns a an array of state names and abbreviations" do
-      expect(map.states.length).to eq 51
+      expect(map.states.length).to eq 52
     end
 
     context "an item within the #states array" do
@@ -18,7 +18,7 @@ describe Madison::Map do
       end
 
       it "contains an 'abbr' key, the value of which is the state abbreviation" do
-        expect(map.states[50]['abbr']).to eq "WY"
+        expect(map.states[50]['abbr']).to eq "WI"
       end
     end
   end
@@ -62,6 +62,7 @@ describe Madison::Map do
     it "returns a state's abbreviation when it's passed a state's name, indpendent of the argument's case" do
       expect(map.get_name("vA")).to eq "Virginia"
       expect(map.get_name("Al")).to eq "Alabama"
+      expect(Madison.get_name("pr")).to eq "Puerto Rico"
     end
 
     it "returns nil in the event that is not passed a valid state name" do

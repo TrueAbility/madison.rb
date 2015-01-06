@@ -7,7 +7,7 @@ describe Madison do
 
   describe '#states' do
     it 'returns an array of hashes representing each US state' do
-      expect(Madison.states.length).to eq 51
+      expect(Madison.states.length).to eq 52
     end
 
     context 'each hash in the array' do
@@ -16,7 +16,7 @@ describe Madison do
       end
 
       it 'contains an "abbr" key, the value of which is a state abbreviation' do
-        expect(Madison.states[50]['abbr']).to eq "WY"
+        expect(Madison.states[50]['abbr']).to eq "WI"
       end
     end
 
@@ -29,6 +29,7 @@ describe Madison do
       it "returns a state's abbreviation when it's passed a state's name, indpendent of the argument's case" do
         expect(Madison.get_abbrev("virginiA")).to eq "VA"
         expect(Madison.get_abbrev("AlaBama")).to eq "AL"
+        expect(Madison.get_abbrev("PuERto RiCO")).to eq "PR"
       end
 
       it 'returns nil in the event that is not passed a valid state name' do
@@ -59,6 +60,7 @@ describe Madison do
       it "returns a state's abbreviation when it's passed a state's name, indpendent of the argument's case" do
         expect(Madison.get_name("vA")).to eq "Virginia"
         expect(Madison.get_name("Al")).to eq "Alabama"
+        expect(Madison.get_name("pr")).to eq "Puerto Rico"
       end
 
       it "returns nil in the event that is not passed a valid state name" do
@@ -86,7 +88,7 @@ describe Madison do
 
     describe '#states' do
       it 'returns an array of state names & abbreviations' do
-        expect(states.length).to eq 51
+        expect(states.length).to eq 52
       end
 
       context 'each hash in the states array' do
